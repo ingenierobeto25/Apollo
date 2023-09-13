@@ -14,12 +14,13 @@ nav();
 
 });
 
+
+//functions for the slider
 var image = $(".active img");
 var imageArray = [];
-var index = 0;
+var index = 0; 
 
-
-image.each(function () {    
+image.each(function () {   
 	imageArray.push($(this).attr("src"));
 }); 
 
@@ -43,9 +44,33 @@ function affiche(){
 	$(".active img").attr("src",imageArray[index]);
 }
 
-
+// functions for charge the map
 var map = L.map('map').setView([51.505, -0.09], 13);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
+
+// function for scroll bar
+function about(){
+	var el =document.querySelector("#about");
+	defiler(el);
+}
+
+function fullSlide(){
+	var el =document.querySelector("#full-slide");
+	defiler(el);
+}
+
+function contact(){
+	var el =document.querySelector("#contact");
+	defiler(el);
+}
+
+function defiler(el){	
+	var scrollOptions ={
+		behavior: "smooth",
+		block: "start"
+	};
+	el.scrollIntoView(scrollOptions);	
+}
